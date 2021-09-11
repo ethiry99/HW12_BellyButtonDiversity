@@ -171,7 +171,7 @@
       "age": 34.0,
       "location": "Chicago/IL",
       "bbtype": "I",
-      "wfr      eq": 1.0
+      "wfreq": 1.0
     },
     {
       "id": 943,
