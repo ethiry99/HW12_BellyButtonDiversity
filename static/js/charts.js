@@ -3,7 +3,7 @@ function init() {
   var selector = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
-  d3.json("samples.json").then((data) => {
+  d3.json("static/js/samples.json").then((data) => {
     var sampleNames = data.names;
 
     sampleNames.forEach((sample) => {
@@ -32,7 +32,7 @@ function optionChanged(newSample) {
 
 // Demographics Panel 
 function buildMetadata(sample) {
-  d3.json("samples.json").then((data) => {
+  d3.json("static/js/samples.json").then((data) => {
     var metadata = data.metadata;
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
@@ -116,7 +116,7 @@ function buildCharts(sample) {
 // Create the buildCharts function.
 function buildCharts(sample) {
   // Use d3.json to load and retrieve the samples.json file 
-  d3.json("samples.json").then((data) => {
+  d3.json("static/js/samples.json").then((data) => {
     // 3. Create a variable that holds the samples array. 
     var samplesArray = data.samples;
     var metadataArray =data.metadata
@@ -213,9 +213,8 @@ function buildCharts(sample) {
       mode:'markers',
       marker:{
         size:sampleValue,
-        colorscale: [
-          
-        ]
+        color:otuId,
+        colorscale: 'Jet'
       }
    
     }];
@@ -236,7 +235,6 @@ function buildCharts(sample) {
     // 4. Create the trace for the gauge chart.
     var gaugeData = [
       {
-        domain: { x: [0, 1], y: [0, 1] },
         value:washFreq,
         title:{text:"Belly Button Washing Frequency<br><span style='font-size:1.0em;color:black'>Scrubs per Week</span>"
               },
@@ -252,7 +250,7 @@ function buildCharts(sample) {
             {range:[6,8],color:"lightgreen"},
             {range:[8,10],color:"green"}
           ],
-          bar:{color:"gray"}
+          bar:{color:"black"}
           
           }
           

@@ -1,0 +1,22 @@
+.jumbotron {
+    background-image: url("../images/bacteria.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+  }
+
+  .centerBlock {
+    display: table;
+    margin: auto;
+  }
+   
+  .row { 
+    margin-bottom: 40px; 
+}
+
+  .jumbotron h1{
+    color: #fff;
+}
+
+.jumbotron p{
+    color: #fff;
+}
